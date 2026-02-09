@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.indraazimi.mobpro2" />
-                  <option name="mobileSdkAppId" value="1:640972678295:android:386cad261652ded323f5d2" />
-                  <option name="projectId" value="mobpro-4ba0a" />
-                  <option name="projectNumber" value="640972678295" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
