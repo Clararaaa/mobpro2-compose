@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.compose.material.icons.extended)
     implementation(project(":shared"))
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
     implementation(libs.firebase.ui.auth)
 
     testImplementation(libs.junit)
