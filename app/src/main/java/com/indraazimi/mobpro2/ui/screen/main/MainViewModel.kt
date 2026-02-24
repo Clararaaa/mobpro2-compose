@@ -66,9 +66,11 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun loadData() {
+    fun loadData(uid: String) {
         registration?.remove()
         registration = db.collection(Kelas.COLLECTION)
+            .whereEqualTo(Kelas.DOSEN_ID, uid)
+            .orderBy(Kelas.NAMA)
             .addSnapshotListener(listener)
     }
 
