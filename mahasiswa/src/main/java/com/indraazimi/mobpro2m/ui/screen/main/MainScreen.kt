@@ -9,7 +9,6 @@
 
 package com.indraazimi.mobpro2m.ui.screen.main
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -48,8 +47,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.firebase.auth.FirebaseUser
-import com.indraazimi.mobpro2s.ui.AppBarWithLogout
 import com.indraazimi.mobpro2m.R
+import com.indraazimi.mobpro2s.ui.AppBarWithLogout
 import com.indraazimi.mobpro2s.ui.UserProfileCard
 
 @Composable
@@ -74,7 +73,7 @@ fun MainScreen(
 
             if (viewModel.dataKelas.isNotEmpty()) {
                 PilihKelas(viewModel.dataKelas) {
-                    Log.d("MainScreen", "Item terpilih: $it")
+                    viewModel.simpanData(it, user)
                 }
             }
         }
