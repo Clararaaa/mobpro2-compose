@@ -9,7 +9,6 @@
 
 package com.indraazimi.mobpro2.ui.screen.main
 
-import android.app.Dialog
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -64,7 +63,7 @@ fun KelasDialog(
                         capitalization = KeyboardCapitalization.Characters,
                         imeAction = ImeAction.Done
                     ),
-                    modifier = Modifier.padding(top = 16.dp)
+                    modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
