@@ -13,11 +13,17 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.google.firebase.auth.FirebaseUser
+import com.indraazimi.mobpro2.ui.screen.detail.DetailScreen
 import com.indraazimi.mobpro2.ui.screen.main.MainScreen
+
+const val KEY_ID_KELAS = "idKelas"
+const val KEY_NAMA_KELAS = "namaKelas"
 
 @Composable
 fun SetupNavGraph(
@@ -29,7 +35,20 @@ fun SetupNavGraph(
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            MainScreen(user)
+            MainScreen(navController, user)
+        }
+
+        composable(
+            route = Screen.Detail.route,
+            arguments = listOf(
+                navArgument(KEY_ID_KELAS) { type = NavType.StringType },
+                navArgument(KEY_NAMA_KELAS) { type = NavType.StringType }
+            )
+        ) { navBackStackEntry ->
+            val args = navBackStackEntry.arguments
+            val id = args?.getString(KEY_ID_KELAS) ?: ""
+            val nama = args?.getString(KEY_NAMA_KELAS) ?: ""
+            DetailScreen(navController, id, nama)
         }
     }
 }

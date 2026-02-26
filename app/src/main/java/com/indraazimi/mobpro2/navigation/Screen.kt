@@ -11,4 +11,10 @@ package com.indraazimi.mobpro2.navigation
 
 sealed class Screen(val route: String) {
     data object Home: Screen("MainScreen")
+
+    data object Detail: Screen(
+        "detailScreen/{$KEY_ID_KELAS}/{$KEY_NAMA_KELAS}"
+    ) {
+        fun withData(id: String, nama: String) = "detailScreen/$id/$nama"
+    }
 }
