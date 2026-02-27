@@ -1,11 +1,15 @@
 package com.indraazimi.mobpro2m
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.net.toUri
+import com.indraazimi.mobpro2m.notify.FcmServices
 import com.indraazimi.mobpro2m.ui.screen.app.MahasiswaApp
 import com.indraazimi.mobpro2m.ui.theme.Mobpro2Theme
 import com.indraazimi.mobpro2s.ui.WelcomeScreen
@@ -19,6 +23,14 @@ class MainActivity : ComponentActivity() {
                 MahasiswaApp()
             }
         }
+        handleExtraData(intent)
+    }
+
+    private fun handleExtraData(intent: Intent) {
+        if (!intent.hasExtra(FcmServices.KEY_URL)) return
+        val url = intent.getStringExtra(FcmServices.KEY_URL) ?: return
+        val tabsIntent = CustomTabsIntent.Builder().build()
+        tabsIntent.launchUrl(this, url.toUri())
     }
 }
 
